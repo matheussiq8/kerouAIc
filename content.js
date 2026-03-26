@@ -62,6 +62,8 @@ function injectStyles() {
       cursor: pointer;
       text-transform: uppercase;
       margin-left: 8px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .${BUTTON_CLASS}[disabled] {
