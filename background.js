@@ -59,18 +59,6 @@ function buildMessages(style, text) {
   ];
 }
 
-function getOpenRouterReferer() {
-  try {
-    if (chrome.runtime && chrome.runtime.id) {
-      return chrome.runtime.getURL('');
-    }
-  } catch (error) {
-    console.warn('kerouAIc: Failed to build extension referer, using LinkedIn fallback.', error);
-  }
-
-  return 'https://www.linkedin.com/';
-}
-
 function getProviderConfig() {
   const provider = settings.provider === 'openrouter' ? 'openrouter' : 'openai';
 
@@ -81,7 +69,7 @@ function getProviderConfig() {
       model: settings.openrouterModel || DEFAULT_SETTINGS.openrouterModel,
       url: 'https://openrouter.ai/api/v1/chat/completions',
       extraHeaders: {
-        'HTTP-Referer': getOpenRouterReferer(),
+        'HTTP-Referer': 'https://www.linkedin.com/',
         'X-Title': 'kerouAIc'
       }
     };

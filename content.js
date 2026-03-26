@@ -2,10 +2,10 @@ const DEFAULT_STYLE = 'Jack Kerouac insane';
 const BUTTON_CLASS = 'kerouaic-rewrite-button';
 const FALLBACK_ACTION_CLASS = 'kerouaic-fallback-actions';
 const BUTTON_TEXT = {
-  idle: 'KEROAIC THIS',
-  loading: 'KEROAIC-ING...',
-  success: 'KEROAIC-ED',
-  error: 'TRY AGAIN'
+  idle: 'kerouAIc this',
+  loading: 'kerouAIc-ing...',
+  success: 'kerouAIc-ed',
+  error: 'Try again'
 };
 
 const TEXT_SELECTORS = [
