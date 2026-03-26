@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kerouAIc</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f1e3;
+        --panel: #fffdf8;
+        --ink: #1c1b19;
+        --muted: #6b645b;
+        --accent: #111111;
+        --accent-text: #f6e7c1;
+        --border: #ded1bb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top left, rgba(255, 231, 168, 0.45), transparent 36%),
+          linear-gradient(180deg, #f3ead8 0%, var(--bg) 58%, #efe2c4 100%);
+        color: var(--ink);
+      }
+
+      main {
+        max-width: 760px;
+        margin: 32px auto;
+        padding: 24px;
+      }
+
+      .panel {
+        background: rgba(255, 253, 248, 0.92);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: 0 24px 60px rgba(74, 53, 22, 0.12);
+        padding: 28px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 40px;
+        letter-spacing: 0.02em;
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .field-group {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 250, 240, 0.72);
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      input[type="text"],
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #c8b79d;
+        border-radius: 12px;
+        background: #fffdf9;
+        color: var(--ink);
+        font: inherit;
+      }
+
+      button {
+        width: fit-content;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--accent);
+        color: var(--accent-text);
+        font: inherit;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      #status {
+        min-height: 20px;
+        color: #0a7d34;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="panel">
+        <h1>kerouAIc</h1>
+        <p>Choose your AI provider, pick a model, and rewrite LinkedIn posts in a Kerouac-bent voice.</p>
+
+        <form id="options-form">
+          <div class="field-group">
+            <label for="provider">
+              Provider
+              <select id="provider">
+                <option value="openai">OpenAI</option>
+                <option value="openrouter">OpenRouter</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="field-group" id="openai-settings">
+            <label for="openai-api-key">
+              OpenAI API Key
+              <input type="text" id="openai-api-key" placeholder="sk-..." autocomplete="off" />
+            </label>
+
+            <label for="openai-model">
+              OpenAI Model
+              <select id="openai-model"></select>
+            </label>
+          </div>
+
+          <div class="field-group" id="openrouter-settings" hidden>
+            <label for="openrouter-api-key">
+              OpenRouter API Key
+              <input type="text" id="openrouter-api-key" placeholder="sk-or-..." autocomplete="off" />
+            </label>
+
+            <label for="openrouter-model">
+              OpenRouter Model
+              <select id="openrouter-model"></select>
+            </label>
+          </div>
+
+          <div class="field-group">
+            <label for="style">
+              Rewrite Voice
+              <select id="style">
+                <option value="Jack Kerouac insane">Jack Kerouac (insane)</option>
+                <option value="Gonzo">Gonzo Journalism</option>
+                <option value="literary poetic">Poetic</option>
+                <option value="stream of consciousness">Stream of consciousness</option>
+              </select>
+            </label>
+          </div>
+
+          <button type="submit">Save</button>
+          <p id="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>
